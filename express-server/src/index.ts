@@ -2,8 +2,9 @@ import express from "express";
 import Redis from "ioredis";
 import { v4 as uuidv4 } from "uuid";
 import cors from "cors";
+require('dotenv').config()
 
-const redis = new Redis(6379);
+const redis = new Redis(process.env.REDIS_URL as string);
 const app = express();
 app.use(cors());
 app.use(express.json());
