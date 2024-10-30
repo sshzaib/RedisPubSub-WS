@@ -1,6 +1,6 @@
 import WebSocket from "ws";
 import { v4 as uuidv4 } from "uuid";
-import Redis from "ioredis";
+import {Redis} from "ioredis";
 
 const wss = new WebSocket.Server({ port: 8080 });
 const users = new Map();

@@ -6,6 +6,11 @@ interface problemBody {
   num1: string;
   num2: string;
 }
+
+function sum({ num1, num2 }: { num1: number; num2: number }) {
+  return num1 + num2;
+}
+
 async function processSubmition({ submition }: { submition: string }) {
   const parsedSubmition: problemBody = JSON.parse(submition);
   const result = sum({
@@ -17,16 +22,13 @@ async function processSubmition({ submition }: { submition: string }) {
   console.log(`published ${result} after 5sec`);
 }
 
-function sum({ num1, num2 }: { num1: number; num2: number }) {
-  return num1 + num2;
-}
 
 async function init() {
   while (true) {
     try {
       const result = await redis.brpop("problem", 0);
       if (result) {
-        await processSubmition({ submition: result[1] }); // Await processSubmition
+        await processSubmition({ submition: result[1] }); 
       }
     } catch (error) {
       console.log("error", error);
