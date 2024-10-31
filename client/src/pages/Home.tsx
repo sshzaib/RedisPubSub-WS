@@ -18,7 +18,7 @@ export const Home = () => {
     async function handleCreateRoom() {
       const roomId = uuidv4()
       const userId = uuidv4()
-      navigate(`?roomId=${roomId}&userId=${userId}&publisher=true`)
+      navigate(`publisherRoom?roomId=${roomId}&userId=${userId}&publisher=true`)
     }
     return (
       <>

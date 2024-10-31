@@ -17,7 +17,7 @@ async function processSubmition({ submition }: { submition: string }) {
 
   // await redis.publish(`$channel:01`, submition);
 
-  await redis.publish(`$channel:${parsedSubmition.roomId}`, submition);
+  await redis.publish(`channel:${parsedSubmition.roomId}`, submition);
   console.log("published");
 }
 
