@@ -11,9 +11,9 @@ app.use(express.json());
 
 app.post("/submit", async (req, res) => {
   const { roomId, userId, publisher, text } = req.body;
-  const problemId = uuidv4();
+  const messageId = uuidv4();
   try {
-    await redis.lpush("problemQueue", JSON.stringify({ problemId, roomId, userId, publisher, text }));
+    await redis.lpush("problemQueue", JSON.stringify({ messageId, roomId, userId, publisher, text }));
     res.json({ message: "problem add to the queue" });
   } catch (error) {
     console.error(error);
