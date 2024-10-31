@@ -11,6 +11,7 @@ wss.on("connection", (ws, req) => {
   const params = new URLSearchParams(url?.split('?')[1])
   const roomId = params.get('roomId');
   const userId = params.get('userId');
+  const publisher = params.get('publisher')
   const redis = new Redis({ port: 6379 });
   redis.subscribe(`channel:${roomId}`, (err) => {
     if (err) {

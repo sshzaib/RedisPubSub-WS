@@ -12,7 +12,7 @@ export const ChatRoom = () => {
     const [receivedMessage, setReceivedMessage] = useState("");
 
     useEffect(() => {
-      const socket = new WebSocket(`ws://localhost:8080/?roomId=${roomId}&userId=${userId}`);
+      const socket = new WebSocket(`ws://localhost:8080/?roomId=${roomId}&userId=${userId}&publisher=true`);
       socket.onopen = () => {
         console.log("connected to WebSocket server");
       };

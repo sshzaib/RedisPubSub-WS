@@ -10,7 +10,7 @@ export const Home = () => {
     const userId = uuidv4()
   
     async function handleJoinRoom() {
-      navigate(`/subscriberRoom?roomId=${text}&userId=${userId}`)
+      navigate(`/subscriberRoom?roomId=${text}&userId=${userId}&publisher=false`)
     }
   
     async function handleCreateRoom() {
