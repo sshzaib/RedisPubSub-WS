@@ -26,8 +26,9 @@ async function processSubmition({ submition }: { submition: string }) {
 async function init() {
   while (true) {
     try {
-      const result = await redis.brpop("problem", 0);
+      const result = await redis.brpop("problemQueue", 0);
       if (result) {
+        console.log(result)
         await processSubmition({ submition: result[1] }); 
       }
     } catch (error) {

@@ -10,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/submit", async (req, res) => {
-  const { num1, num2 } = req.body;
+  const { roomId, userId, publisher, text } = req.body;
   const problemId = uuidv4();
   try {
-    await redis.lpush("problem", JSON.stringify({ problemId, num1, num2 }));
+    await redis.lpush("problemQueue", JSON.stringify({ problemId, roomId, userId, publisher, text }));
     res.json({ message: "problem add to the queue" });
   } catch (error) {
     console.error(error);

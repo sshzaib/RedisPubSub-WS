@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -7,8 +8,13 @@ export const ChatRoom = () => {
     const roomId = searchParams.get("roomId");
     const userId = searchParams.get("userId")
     const publisher = searchParams.get("publisher")
-    const handleButtonClick = () => {
-        
+    const handleButtonClick =  async() => {
+        await axios.post("http://localhost:3000/submit", {
+            roomId,
+            userId,
+            publisher,
+            text
+        });
     }    
     return (
         <>
