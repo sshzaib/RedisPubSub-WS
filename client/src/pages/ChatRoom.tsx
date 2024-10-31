@@ -50,7 +50,8 @@ export const ChatRoom = () => {
         <div>
           <button onClick={handleButtonClick} >Send Message</button>
         </div>
-        <div>{JSON.parse(receivedMessage).text}</div>
+        {receivedMessage ? <div>{JSON.parse(receivedMessage).text}</div>
+        : null}
         </>
     )
 }
